@@ -10,19 +10,21 @@ double secondFriendSpeed = Convert.ToDouble(Console.ReadLine());
 Console.Write("Введите скорость собаки (км/ч): ");
 double dogSpeed = Convert.ToDouble(Console.ReadLine());
 
-int count = 0;          // Счетчик
-bool ToFriend2 = true;         // Изначально собака бежит ко второму другу
-double time = 0;            // Объявили переменную time
+int count = 0;                  // Счетчик
+bool ToFriend2 = true;          // Изначально собака бежит ко второму другу
+double time;                    // Объявили переменную time
 
-while (distance > 0.01)     // Пока дистанция между ними больше 10 метров, выполняем цикл
+while (distance > 0.01)         // Пока дистанция между ними больше 10 метров, выполняем цикл
 {
     if (ToFriend2 == true)
     {
-        time = distance / ( secondFriendSpeed + dogSpeed); 
+        time = distance / (secondFriendSpeed + dogSpeed); 
+        ToFriend2 = false;
     }
     else
     {
-        time = distance / ( firstFriendSpeed + dogSpeed); 
+        time = distance / (firstFriendSpeed + dogSpeed); 
+        ToFriend2 = true;
     }
 
 distance = distance - (firstFriendSpeed + secondFriendSpeed) * time;
@@ -31,4 +33,4 @@ count++;
 
 Console.Write ("Собака пробежит ");
 Console.Write (count);
-Console.Write (" раз.");
+Console.Write (" раз(а).");
